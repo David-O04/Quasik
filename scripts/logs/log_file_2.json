@@ -1,0 +1,16 @@
+{
+    "insertId": "1vzsfkec57c",
+    "logName": "projects/prj-c-orgpolicy-eef1/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {},
+      "authorizationInfo": [],
+      "methodName": "google.logging.v2.LoggingServiceV2.AggregateLogs",
+      "request": {},
+      "requestMetadata": {},
+      "resourceName": "projects/prj-c-orgpolicy-eef1",
+      "serviceName": "logging.googleapis.com",
+      "status": {}
+    }
+  }
+  

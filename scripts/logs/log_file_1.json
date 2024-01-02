@@ -1,0 +1,43 @@
+
+  {
+    "protoPayload": {
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "davoberi@publicisgroupe.net"
+      },
+      "requestMetadata": {
+        "callerIp": "185.69.144.76",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2023-11-17T14:44:29.782545822Z",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "clouderrorreporting.googleapis.com",
+      "methodName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService.ListGroupStats",
+      "authorizationInfo": [
+        {
+          "resource": "projects/prj-c-orgpolicy-eef1/groupStats",
+          "permission": "errorreporting.groups.list",
+          "granted": true,
+          "resourceAttributes": {}
+        }
+      ],
+      "resourceName": "projects/prj-c-orgpolicy-eef1/groupStats",
+      "request": {
+        "@type": "type.googleapis.com/google.devtools.clouderrorreporting.v1beta1.ListGroupStatsRequest"
+      }
+    },
+    "insertId": "vn0yxrd3cse",
+    "resource": {
+      "type": "reported_errors",
+      "labels": {
+        "project_id": "prj-c-orgpolicy-eef1"
+      }
+    },
+    "timestamp": "2023-11-17T14:44:29.771495221Z",
+    "severity": "INFO",
+    "logName": "projects/prj-c-orgpolicy-eef1/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "receiveTimestamp": "2023-11-17T14:44:31.029919783Z"
+  }

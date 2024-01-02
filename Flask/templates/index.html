@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Flask D3.js App</title>
+    <!-- Include D3.js from a CDN -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- D3.js visualization container -->
+    <div id="chart"></div>
+
+    <!-- Include app.js script -->
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <p>Hello World</p>
+</body>
+</html>
+
+
+<!-- <script>
+    // Assuming 'data' variable contains the JSON data
+    d3.json("/fetch_data_for_d3").then(function(data) {
+        var width = 500;
+        var height = 300;
+
+        var svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var bars = svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                return i * (width / data.length);
+            })
+            .attr("y", function(d) {
+                return height - d.value * 10; 
+            })
+            .attr("width", width / data.length - 5)
+            .attr("height", function(d) {
+                return d.value * 10; 
+            })
+            .attr("fill", "blue");
+
+        // Adding text labels
+        svg.selectAll("text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d.message;
+            })
+            .attr("x", function(d, i) {
+                return i * (width / data.length) + (width / data.length - 5) / 2;
+            })
+            .attr("y", function(d) {
+                return height - d.value * 10 - 5;
+            })
+            .attr("text-anchor", "middle")
+            .attr("fill", "black");
+    });
+</script> -->
+
+</body>
+</html>

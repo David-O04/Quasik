@@ -1,0 +1,63 @@
+[
+  {
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "davoberi@publicisgroupe.net"
+      },
+      "requestMetadata": {
+        "callerIp": "62.49.30.193",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2023-12-08T17:55:56.456949912Z",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "logging.googleapis.com",
+      "methodName": "google.logging.v2.LoggingServiceV2.ReadLogEntriesLegacy",
+      "authorizationInfo": [
+        {
+          "resource": "projects/prj-c-guardrails-637f",
+          "permission": "logging.logEntries.list",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "logging.googleapis.com",
+            "name": "projects/prj-c-guardrails-637f"
+          }
+        },
+        {
+          "resource": "projects/prj-c-guardrails-637f",
+          "permission": "logging.privateLogEntries.list",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "logging.googleapis.com",
+            "name": "projects/prj-c-guardrails-637f"
+          }
+        }
+      ],
+      "resourceName": "projects/prj-c-guardrails-637f",
+      "request": {
+        "batchSize": 1,
+        "resourceNames": [
+          "projects/prj-c-guardrails-637f"
+        ],
+        "filter": "insertId=\"1xnpb1ucdl2\" timestamp=\"2023-12-08T17:55:06.372566630Z\"",
+        "@type": "type.googleapis.com/google.logging.v2.ReadLogEntriesRequest"
+      }
+    },
+    "insertId": "1no3x8ed8u46",
+    "resource": {
+      "type": "logging_log",
+      "labels": {
+        "name": "",
+        "project_id": "prj-c-guardrails-637f"
+      }
+    },
+    "timestamp": "2023-12-08T17:55:56.445827293Z",
+    "severity": "INFO",
+    "logName": "projects/prj-c-guardrails-637f/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "receiveTimestamp": "2023-12-08T17:55:57.184161931Z"
+  }
+]
