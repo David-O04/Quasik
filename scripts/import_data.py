@@ -42,26 +42,6 @@ async def create_table(conn):
     except Exception as e:
         print(f"Error creating table: {e}")
 
-async def create_table1(conn):
-    try:
-        # Create table if not exists
-        result = await conn.execute("""
-            CREATE TABLE IF NOT EXISTS audit_logs1 (
-                insert_id VARCHAR(255),
-                log_name VARCHAR(255),
-                audit_type VARCHAR(255),
-                authentication_info JSONB,
-                authorization_info JSONB[],
-                method_name VARCHAR(255),
-                request JSONB,
-                request_metadata JSONB,
-                resource_name VARCHAR(255),
-                service_name VARCHAR(255),
-                status JSONB,
-                principal_email VARCHAR(255)
-            );
-        """)
-        print("Table creation result:", result)
 
     except Exception as e:
         print(f"Error creating table: {e}")
