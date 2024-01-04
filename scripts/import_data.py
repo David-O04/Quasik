@@ -43,12 +43,6 @@ async def create_table(conn):
         print(f"Error creating table: {e}")
 
 
-    except Exception as e:
-        print(f"Error creating table: {e}")
-
-
-
-
 async def insert_data(conn, log_data):
     proto_payload = log_data.get("protoPayload", "")
     
@@ -106,7 +100,7 @@ async def import_data_from_json_files():
             return
 
         # Create table if not exists
-        await create_table1(conn)
+        await create_table(conn)
 
         # Directory containing JSON log files
         log_directory = "logs"
