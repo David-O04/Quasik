@@ -1,8 +1,5 @@
 from flask import Flask, jsonify, render_template
 import asyncpg
-import json
-import os
-from collections import Counter
 
 app = Flask(__name__)
 
@@ -17,24 +14,19 @@ async def get_db_connection():
     )
     return conn
 
-# Route for processing log data from JSON files
+# Route to fetch data from PostgreSQL
 @app.route('/fetch_data_for_d3')
-def fetch_data_for_d3():
-    log_directory = "logs"
-    severity_counter = Counter()
-
-    # Process each log file
-    for filename in os.listdir(log_directory):
-        if filename.endswith(".json"):
-            with open(os.path.join(log_directory, filename), 'r') as file:
-                log_data = json.load(file)
-                for entry in log_data:
-                    severity = entry.get("severity", "Unknown")
-                    severity_counter[severity] += 1
-
-    # Convert the counter to the format expected by D3.js
-    processed_data = [{"message": severity, "value": count} for severity, count in severity_counter.items()]
-    return jsonify(processed_data)
+async def fetch_data_for_d3():
+    conn = await get_db_connection()
+    try:
+        # SQL query to count the number of log entries for each service_name
+        rows = await conn.fetch("SELECT service_name, COUNT(*) AS value FROM audit_logs GROUP BY service_name")
+        data = [{"message": row['service_name'], "value": row['value']} for row in rows]
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        await conn.close()
 
 @app.route('/')
 def home():

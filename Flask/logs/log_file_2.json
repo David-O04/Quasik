@@ -4,6 +4,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {},
+      "severity": "INFO",
       "authorizationInfo": [],
       "methodName": "google.logging.v2.LoggingServiceV2.AggregateLogs",
       "request": {},
