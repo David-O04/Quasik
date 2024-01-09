@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask D3.js App</title>
-    <!-- Include D3.js from a CDN -->
+    <title>Quasik: Error Management Dashboard</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <!-- Link to your CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 </head>
 <body>
-    <!-- Container where the D3.js visualization will be rendered -->
-    <div id="chart"></div>
-
-    <!-- Script for your application logic -->
+    <header>Quasik</header>
+    <div id="title">Error Management Dashboard</div>
+    <div class="container">
+        <div id="chart"></div>
+        <div id="animation"></div>
+        <div class="tooltip"></div>
+    </div>
+    
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script>
+        // Initialise Lottie animation
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "static/animations/bank_animation.json"
+        });
+    </script>
 </body>
 </html>
