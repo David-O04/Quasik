@@ -3,8 +3,8 @@ import asyncpg
 
 app = Flask(__name__)
 
-# Dummy credentials for demonstration
-USERNAME = "admin"
+# credentialz
+USERNAME = "password"
 PASSWORD = "password"
 
 # Database connection function
@@ -45,7 +45,7 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    # You can add further logic to check if the user is logged in
+   
     return render_template('index.html')
 
 @app.route('/')
