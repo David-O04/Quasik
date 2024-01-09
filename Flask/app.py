@@ -1,7 +1,11 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request, redirect, url_for
 import asyncpg
 
 app = Flask(__name__)
+
+# Dummy credentials for demonstration
+USERNAME = "admin"
+PASSWORD = "password"
 
 # Database connection function
 async def get_db_connection():
@@ -28,9 +32,25 @@ async def fetch_data_for_d3():
     finally:
         await conn.close()
 
-@app.route('/')
-def home():
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if username == USERNAME and password == PASSWORD:
+            return redirect(url_for('dashboard'))
+        else:
+            return 'Invalid credentials!'
+    return render_template('login.html')
+
+@app.route('/dashboard')
+def dashboard():
+    # You can add further logic to check if the user is logged in
     return render_template('index.html')
+
+@app.route('/')
+def root():
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

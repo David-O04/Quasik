@@ -8,6 +8,17 @@ d3.json("/fetch_data_for_d3").then(function(data) {
                 .attr("width", width)
                 .attr("height", height);
 
+    // Create a tooltip
+    var tooltip = d3.select("body")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("visibility", "hidden")
+                    .style("background", "#f8f9fa")
+                    .style("border", "1px solid #ccc")
+                    .style("border-radius", "4px")
+                    .style("padding", "5px");
+
+    // Create bars and add tooltip events
     svg.selectAll("rect")
        .data(data)
        .enter()
@@ -22,7 +33,18 @@ d3.json("/fetch_data_for_d3").then(function(data) {
        .attr("height", function(d) {
            return d.value * 10; 
        })
-       .attr("fill", "blue");
+       .attr("fill", "blue")
+       .on("mouseover", function(event, d) {
+           tooltip.html(d.message + "<br>" + d.value)
+                  .style("visibility", "visible");
+       })
+       .on("mousemove", function(event) {
+           tooltip.style("top", (event.pageY - 10) + "px")
+                  .style("left", (event.pageX + 10) + "px");
+       })
+       .on("mouseout", function() {
+           tooltip.style("visibility", "hidden");
+       });
 
     // Adding text labels
     svg.selectAll("text")
