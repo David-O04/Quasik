@@ -3,66 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Flask D3.js App</title>
+    <title>Flask D3.js App</title>
     <!-- Include D3.js from a CDN -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Link to your CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- D3.js visualization container -->
+    <!-- Container where the D3.js visualization will be rendered -->
     <div id="chart"></div>
 
-    <p>Hello World</p>
-
-    <!-- Include app.js script -->
+    <!-- Script for your application logic -->
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
-
-    <script>
-        // Fetch data from the Flask backend and create a bar chart
-        d3.json("/fetch_data_for_d3").then(function(data) {
-            var width = 500;
-            var height = 300;
-
-            var svg = d3.select("#chart")
-                        .append("svg")
-                        .attr("width", width)
-                        .attr("height", height);
-
-            svg.selectAll("rect")
-               .data(data)
-               .enter()
-               .append("rect")
-               .attr("x", function(d, i) {
-                   return i * (width / data.length);
-               })
-               .attr("y", function(d) {
-                   return height - d.value * 10; // Replace 'd.value' with the actual data property
-               })
-               .attr("width", width / data.length - 5)
-               .attr("height", function(d) {
-                   return d.value * 10; // Replace 'd.value' with the actual data property
-               })
-               .attr("fill", "blue");
-
-            // Adding text labels
-            svg.selectAll("text")
-               .data(data)
-               .enter()
-               .append("text")
-               .text(function(d) {
-                   return d.message; // Replace 'd.message' with the actual data property
-               })
-               .attr("x", function(d, i) {
-                   return i * (width / data.length) + (width / data.length - 5) / 2;
-               })
-               .attr("y", function(d) {
-                   return height - d.value * 10 - 5; // Replace 'd.value' with the actual data property
-               })
-               .attr("text-anchor", "middle")
-               .attr("fill", "black");
-        }).catch(function(error) {
-            console.log(error);
-        });
-    </script>
 </body>
 </html>
