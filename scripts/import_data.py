@@ -128,8 +128,3 @@ async def import_data_from_json_files():
 
 if __name__ == "__main__":
     asyncio.run(import_data_from_json_files())
-
-    #flask server with roots that fetch stuff from database based on what user is searching for, drowpdown, visualization of when logs happen or which ones had info and severity 
-    #simple html, javascrpt, (d3.js?), root in flask thats a get() or post fetching the value returning them javascript handles that and puts that in a chart or graph, have something in flask that fetches the values in the database and then displays it
-    #done 
-    
